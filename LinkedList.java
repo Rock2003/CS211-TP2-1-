@@ -27,14 +27,6 @@ public class LinkedList<E> extends AbstractList<E> {
         return size;
     }
 
-    // pre : 0 <= index < size() (throws IndexOutOfBoundsException if not)
-    // post: returns the value at the given index in the list
-    public E get(int index) {
-        checkIndex(index);
-        ListNode<E> current = nodeAt(index);
-        return current.data;
-    }
-
     // pre: 0 <= index <= size() (throws IndexOutOfBoundsException if not)
     // post: inserts the given value at the given index, shifting subsequent
     //       values right
@@ -51,6 +43,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
     // pre : 0 <= index < size() (throws IndexOutOfBoundsException if not)
     // post: removes value at the given index, shifting subsequent values left
+    @Override
     public void remove(int index) {
         checkIndex(index);
         ListNode<E> current = nodeAt(index - 1);
@@ -61,6 +54,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
     // pre : 0 <= index < size() (throws IndexOutOfBoundsException if not)
     // post: replaces the value at the given index with the given value
+    @Override
     public void set(int index, E value) {
         checkIndex(index);
         ListNode<E> current = nodeAt(index);
@@ -68,6 +62,7 @@ public class LinkedList<E> extends AbstractList<E> {
     }
 
     // post: list is empty
+    @Override
     public void clear() {
         front.next = back;
         back.prev = front;

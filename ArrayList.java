@@ -37,13 +37,6 @@ public class ArrayList<E> extends AbstractList<E> {
         return size;
     }
 
-    // pre : 0 <= index < size() (throws IndexOutOfBoundsException if not)
-    // post: returns the value at the given index in the list
-    public E get(int index) {
-        checkIndex(index);
-        return elementData[index];
-    }
-
     // pre : 0 <= index <= size() (throws IndexOutOfBoundsException if not)
     // post: inserts the given value at the given index, shifting subsequent
     //       values right
@@ -61,6 +54,7 @@ public class ArrayList<E> extends AbstractList<E> {
 
     // pre : 0 <= index < size() (throws IndexOutOfBoundsException if not)
     // post: removes value at the given index, shifting subsequent values left
+    @Override
     public void remove(int index) {
         checkIndex(index);
         for (int i = index; i < size - 1; i++) {
@@ -72,12 +66,14 @@ public class ArrayList<E> extends AbstractList<E> {
 
     // pre : 0 <= index < size() (throws IndexOutOfBoundsException if not)
     // post: replaces the value at the given index with the given value
+    @Override
     public void set(int index, E value) {
         checkIndex(index);
         elementData[index] = value;
     }
 
     // post: list is empty
+    @Override
     public void clear() {
         for (int i = 0; i < size; i++) {
             elementData[i] = null;
