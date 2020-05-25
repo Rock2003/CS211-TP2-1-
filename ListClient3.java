@@ -19,7 +19,7 @@ public class ListClient3 {
         processList(arrayList);
 
         List<Integer> linkedList = new LinkedList<Integer>();
-        System.out.printf("Testing LinkedList implementation of AbstractList:\n");
+        System.out.printf("Testing LinkedList implementation of LinkedList:\n");
         processList(linkedList);
     }
 
@@ -33,6 +33,7 @@ public class ListClient3 {
         System.out.printf("size(): %s\n", list.size());
         System.out.printf("contains(30): %s\n", list.contains(30));
         System.out.printf("contains(15): %s\n", list.contains(15));
+        System.out.printf("isEmpty(): %s\n", list.isEmpty());
         System.out.printf("indexOf(40): %s\n", list.indexOf(40));
         System.out.printf("indexOf(60): %s\n", list.indexOf(60));
         System.out.printf("get(1): %s\n", list.get(1));
@@ -58,6 +59,7 @@ public class ListClient3 {
         System.out.printf("addAll(otherList): %s\n", list);
         
         list.clear();
-        System.out.printf("clear(): %s\n\n\n", list);
+        System.out.printf("clear(): %s\n", list);
+        System.out.printf("isEmpty(): %s\n\n\n", list.isEmpty());
     }
 }
