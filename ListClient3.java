@@ -14,27 +14,21 @@
 
 public class ListClient3 {
     public static void main(String[] args) {
-
-        List<Integer> otherList = new ArrayList<Integer>();
-        otherList.add(100);
-        otherList.add(200);
-        otherList.add(300);
-
         List<Integer> arrayList = new ArrayList<Integer>();
         System.out.printf("\n\nTesting ArrayList implementation of AbstractList:\n");
-        processList(arrayList, otherList);
+        processList(arrayList);
 
         List<Integer> linkedList = new LinkedList<Integer>();
         System.out.printf("Testing LinkedList implementation of AbstractList:\n");
-        processList(linkedList, otherList);
+        processList(linkedList);
     }
 
-    public static void processList(List<Integer> list, List<Integer> other) {
+    public static void processList(List<Integer> list) {
         list.add(10);
         list.add(20);
         list.add(30);
         list.add(40);
-       
+        
         System.out.printf("\nList: %s\n", list);
         System.out.printf("size(): %s\n", list.size());
         System.out.printf("contains(30): %s\n", list.contains(30));
@@ -53,10 +47,15 @@ public class ListClient3 {
         System.out.printf("add(50): %s\n", list);
         list.add(2,3000);
         System.out.printf("add(2, 3000): %s\n", list);
-
-        System.out.printf("Other List: %s\n", other);
-        list.addAll(other);
-        System.out.printf("addAll(other): %s\n", list);
+        
+        List<Integer> otherList = new ArrayList<Integer>();
+        otherList.add(100);
+        otherList.add(200);
+        otherList.add(300);
+       
+        System.out.printf("Other List: %s\n", otherList);
+        list.addAll(otherList);
+        System.out.printf("addAll(otherList): %s\n", list);
         
         list.clear();
         System.out.printf("clear(): %s\n\n\n", list);
